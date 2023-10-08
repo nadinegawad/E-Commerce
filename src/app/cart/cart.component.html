@@ -1,0 +1,32 @@
+<div class="container py-5">
+    <div class="bg-main-light  p-4" *ngIf="cartInfo?.data">
+        <h2 class="mb-2">Shop Cart</h2>
+        <h5 class="text-main mb-4">Total price : <span>{{cartInfo.data.totalCartPrice |currency:'EGP'}}</span></h5>
+        <div class="row border-bottom  py-1" *ngFor="let product of cartInfo.data.products ">
+            <div class="col-md-1">
+                <img [src]="product.product.imageCover" class="w-100 " alt="">
+            </div>
+            <div class="col-md-10">
+                <h4>{{product.product.title}}</h4>
+                <p class="text-main">{{product.product.category.name}}</p>
+                <div class="d-flex align-items-center ">
+                    <p class="m-0 text-main me-4">{{product.price|currency:'EGP'}}</p>
+                    <button class="btn text-danger p-0" (click)="remove(product.product.id)"> <i
+                            class="fa-regular fa-trash-can  me-1"></i>Remove</button>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button class="btn update-btn p-1" (click)="UpdateCount(product.count+1,product.product.id)">+</button>
+                <span class="mx-2">{{product.count}}</span>
+                <button class="btn update-btn p-1" (click)="UpdateCount(product.count-1,product.product.id)">-</button>
+            </div>
+        </div>
+        <a routerLink="/checkout">
+            <button class="btn main-btn my-3 px-3">Online Payment
+                <i class="fa-brands fa-lg fa-cc-visa"></i>
+            </button>
+
+        </a>
+    </div>
+
+</div>

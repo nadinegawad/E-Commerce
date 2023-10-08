@@ -1,0 +1,25 @@
+<div class="container py-5">
+    <div class="row align-items-center justify-content-center ">
+        <div class="col-md-4">
+            <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let slide of productInfo.images">
+                <ng-template carouselSlide >
+                  <img [src]="slide">
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+        </div>
+        <div class="col-md-8 position-relative ">
+            <i *ngIf="!wishlistData.includes(productInfo.id)" class="fa-regular fa-heart  fa-2x text-danger top-0 end-0 position-absolute" (click)="addToWishlist(productInfo.id)"></i>
+            <i *ngIf="wishlistData.includes(productInfo.id)"  class="fa-solid fa-heart fa-2x text-danger position-absolute end-0  top-0" (click)="removeFav(productInfo.id)"></i>
+            <h2 class="mb-4">{{productInfo.title}}</h2>
+            <p class="mb-3">{{productInfo.description}}</p>
+            <p  class="mb-3 text-main">{{productInfo.category.name}}</p>
+            <div class="d-flex justify-content-between align-items-center ">
+                <p class="text-main mb-2" >{{productInfo.price | currency :'EGP'}}</p>
+                <P><i class="fa fa-star text-warning mb-2"></i> {{6}}</P>
+            </div>
+            <button class="btn main-btn w-100" (click)="addToCart(productInfo.id)">+add to cart</button>
+        </div>
+    </div>
+</div>

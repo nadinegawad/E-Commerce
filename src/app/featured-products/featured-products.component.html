@@ -1,0 +1,9 @@
+<div class="container py-5">
+  <input [(ngModel)]="searchKey" type="text" class="w-50 form-control border-4 mx-auto">
+  <div class="row">
+    
+    <div class="col-md-2 p-3" *ngFor="let product of allProducts | searchPipe :searchKey">
+        <app-product-item [product]="product"></app-product-item>
+    </div>
+  </div>
+</div>

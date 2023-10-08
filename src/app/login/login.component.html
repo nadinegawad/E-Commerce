@@ -1,0 +1,34 @@
+<div class="container py-5">
+    <div class="row w-75 mx-auto py-4 bg-main-light  shadow rounded">
+      <h2>Login Now :</h2>
+      <p *ngIf="errMsg" class="alert alert-danger">{{errMsg}}</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="handelLOgin(loginForm)" >
+  
+        <label for="email">email :</label>
+        <input formControlName="email" class="form-control mb-1" type="email" id="email" />
+        <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched || isNotvalid)" class="alert alert-danger">
+          <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0">Email is Required</p>
+          <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0">Email not Valid</p>
+        </div>
+  
+        <label for="password">password :</label>
+        <input formControlName="password" class="form-control mb-1" type="password" id="password" />
+  
+        <div *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched || isNotvalid)" class="alert alert-danger">
+          <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0">Password is Required</p>
+          <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0">Password not Valid</p>
+        </div>
+  
+  
+        <div class="d-flex align-items-center justify-content-between mt-3">
+          <button type="submit" class="btn btn-success main-btn   px-3">
+            <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading">login</span>
+          </button>
+          <a class="link-primary" routerLink ="/forget">Forget Password</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  

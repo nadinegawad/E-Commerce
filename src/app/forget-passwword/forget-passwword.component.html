@@ -1,0 +1,39 @@
+<section *ngIf="step1" class="row w-75 mx-auto p-4 bg-main-light  shadow rounded">
+  <form [formGroup]="forgetPasswordForm" (ngSubmit)="forgetPassword(forgetPasswordForm.value.email)">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+    <button class="main-btn w-100 my-3">Forget Password</button>
+    <div *ngIf="forgetPasswordForm.get('email')?.errors && (forgetPasswordForm.get('email')?.touched )"
+      class="alert alert-danger">
+      <p *ngIf="forgetPasswordForm.get('email')?.getError('required')" class="m-0">Email is Required</p>
+      <p *ngIf="forgetPasswordForm.get('email')?.getError('email')" class="m-0">Email not Valid</p>
+    </div>
+    <p *ngIf="userMsg" class="alert alert-danger  mx-auto text-center">{{userMsg}}</p>
+  </form>
+</section>
+
+<section *ngIf="step2"  class="row w-75 mx-auto p-4 bg-main-light  shadow rounded">
+  <form [formGroup]="resetCodeForm" (ngSubmit)="resetCode()">
+    <label for="resetCode">Reset Code</label>
+    <input type="text" class="form-control" id="resetCode" formControlName="resetCode">
+    <button class="main-btn w-100 my-3">Reset Code</button>
+
+    <div *ngIf="forgetPasswordForm.get('resetCode')?.errors && (forgetPasswordForm.get('resetCode')?.touched )"
+      class="alert alert-danger">
+      <p *ngIf="forgetPasswordForm.get('resetCode')?.getError('required')" class="m-0">Reset Code is Required</p>
+    </div>
+    <p *ngIf="userMsg" class="alert alert-danger  mx-auto text-center">{{userMsg}}</p>
+
+  </form>
+</section>
+
+
+<section *ngIf="step3" class="row w-75 mx-auto p-4 bg-main-light  shadow rounded">
+  <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
+    <label for="newPassword">New Password</label>
+    <input type="text" class="form-control" id="newPassword" formControlName="newPassword">
+    <button class="main-btn w-100 my-3">New Password</button>
+    <p *ngIf="userMsg" class="alert alert-danger mt-3 w-50 mx-auto text-center">{{userMsg}}</p>
+
+  </form>
+</section>

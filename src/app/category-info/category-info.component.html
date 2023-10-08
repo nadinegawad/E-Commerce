@@ -1,0 +1,8 @@
+<div class="container py-5">
+    <div class="row">
+      
+      <div class="col-md-2 p-3" *ngFor="let product of categoryInfo ">
+          <app-product-item [product]="product"></app-product-item>
+      </div>
+    </div>
+  </div>
