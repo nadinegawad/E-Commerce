@@ -18,9 +18,9 @@
     <input type="text" class="form-control" id="resetCode" formControlName="resetCode">
     <button class="main-btn w-100 my-3">Reset Code</button>
 
-    <div *ngIf="forgetPasswordForm.get('resetCode')?.errors && (forgetPasswordForm.get('resetCode')?.touched )"
+    <div *ngIf="resetCodeForm.get('resetCode')?.errors && (resetCodeForm.get('resetCode')?.touched )"
       class="alert alert-danger">
-      <p *ngIf="forgetPasswordForm.get('resetCode')?.getError('required')" class="m-0">Reset Code is Required</p>
+      <p *ngIf="resetCodeForm.get('resetCode')?.getError('required')" class="m-0">Reset Code is Required</p>
     </div>
     <p *ngIf="userMsg" class="alert alert-danger  mx-auto text-center">{{userMsg}}</p>
 
@@ -34,10 +34,10 @@
     <input type="password" class="form-control" id="newPassword" formControlName="newPassword">
     <button class="main-btn w-100 my-3">New Password</button>
 
-    <div *ngIf="forgetPasswordForm.get('newPassword')?.errors && (forgetPasswordForm.get('newPassword')?.touched )"
+    <div *ngIf="resetPasswordForm.get('newPassword')?.errors && (resetPasswordForm.get('newPassword')?.touched )"
       class="alert alert-danger">
-      <p *ngIf="forgetPasswordForm.get('newPassword')?.getError('required')" class="m-0">New Password  is Required</p>
-      <p *ngIf="forgetPasswordForm.get('newPassword')?.getError('pattern')" class="m-0">New Password  not Valid</p>
+      <p *ngIf="resetPasswordForm.get('newPassword')?.getError('required')" class="m-0">New Password  is Required</p>
+      <p *ngIf="resetPasswordForm.get('newPassword')?.getError('pattern')" class="m-0">New Password  not Valid</p>
     </div>
     <p *ngIf="userMsg" class="alert alert-danger  mx-auto text-center">{{userMsg}}</p>
 
