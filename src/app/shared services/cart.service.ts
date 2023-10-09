@@ -47,11 +47,9 @@ export class CartService {
   }
 
   generateCartPayment(cartId: string, shippingAddress: any): Observable<any> {
-    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`, {
+    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://nadinegawad.github.io/E-Commerce`, {
       shippingAddress: shippingAddress
     })
   }
-  getOrder(): Observable<any> {
-    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/orders/`);
-  }
+
   }

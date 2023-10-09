@@ -34,7 +34,6 @@ const routes: Routes = [
   { path: 'checkout', canActivate: [authGuard], component: CheckoutComponent, title: 'checkout' },
   { path: 'forgetPassword',  canActivate: [authGuard], component: ForgetPasswwordComponent, title: 'forgetPassword' },
   { path: 'forget',  component: ForgetPasswwordComponent, title: 'forgetPassword' },
-
   { path: 'allorders', canActivate: [authGuard], component: AllordersComponent, title: 'allorders' },
   { path: 'wishlist', loadChildren: () => import('./wishlist/wishlist.module').then(m => m.WishlistModule) },
   { path: '**', component: NotFoundComponent, title: 'notfound' },
