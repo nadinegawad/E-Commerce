@@ -34,7 +34,7 @@
     <input type="password" class="form-control" id="newPassword" formControlName="newPassword">
     <button class="main-btn w-100 my-3">New Password</button>
 
-    <div *ngIf="forgetPasswordForm.get('resetPassword')?.errors && (forgetPasswordForm.get('resetPassword')?.touched )"
+    <div *ngIf="forgetPasswordForm.get('newPassword')?.errors && (forgetPasswordForm.get('newPassword')?.touched )"
       class="alert alert-danger">
       <p *ngIf="forgetPasswordForm.get('newPassword')?.getError('required')" class="m-0">New Password  is Required</p>
       <p *ngIf="forgetPasswordForm.get('newPassword')?.getError('pattern')" class="m-0">New Password  not Valid</p>
