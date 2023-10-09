@@ -33,7 +33,13 @@
     <label for="newPassword">New Password</label>
     <input type="text" class="form-control" id="newPassword" formControlName="newPassword">
     <button class="main-btn w-100 my-3">New Password</button>
-    <p *ngIf="userMsg" class="alert alert-danger mt-3 w-50 mx-auto text-center">{{userMsg}}</p>
+
+    <div *ngIf="forgetPasswordForm.get('resetPassword')?.errors && (forgetPasswordForm.get('resetPassword')?.touched )"
+      class="alert alert-danger">
+      <p *ngIf="forgetPasswordForm.get('resetPassword')?.getError('required')" class="m-0">New Password  is Required</p>
+      <p *ngIf="forgetPasswordForm.get('password')?.getError('pattern')" class="m-0">New Password  not Valid</p>
+    </div>
+    <p *ngIf="userMsg" class="alert alert-danger  mx-auto text-center">{{userMsg}}</p>
 
   </form>
 </section>
